@@ -98,52 +98,61 @@ PricePilot AI analyzes local signals, forecasts daily demand, benchmarks rival s
 
 ---
 
-## 📦 Project Structure
+## 📦 ## 📁 Project Structure
 
-```
-pricepilot-ai/
-├── index.html
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-├── tailwind.config.js
-├── postcss.config.js
+```text
+PricePilot-AI/
+│
+├── ml_backend/
+│   ├── .venv/                         # Python virtual environment (local only)
+│   ├── app.py                         # Flask ML backend API
+│   ├── train_model.py                 # Model training script
+│   ├── demand_model.joblib            # Trained demand prediction model
+│   ├── pricepilot_synthetic_retail_data.csv  # Synthetic retail dataset
+│   ├── requirements.txt               # Python dependencies
+│   ├── test_atlas.py                  # MongoDB Atlas connection tests
+│   ├── README.md                      # ML backend documentation
+│   └── .env                           # Environment variables (not committed)
+│
 ├── src/
-│   ├── main.tsx
-│   ├── App.tsx
-│   ├── index.css
-│   ├── types/
-│   │   └── index.ts                 # Type definitions
-│   ├── data/
-│   │   └── sampleData.ts            # Realistic preloaded products, competitors, offers
-│   ├── services/
-│   │   ├── pricingEngine.ts         # Deterministic AI pricing & demand elasticity logic
-│   │   └── storageService.ts        # LocalStorage persistence service
+│   ├── components/                    # Reusable UI components
 │   ├── context/
-│   │   └── AppContext.tsx           # Global state, auth, approval actions, notifications
-│   ├── components/
-│   │   ├── common/
-│   │   │   ├── Navbar.tsx           # Header with live weather simulator & alerts
-│   │   │   ├── Sidebar.tsx          # Collapsible navigation sidebar
-│   │   │   ├── NotificationDrawer.tsx # Slide-out notification drawer
-│   │   │   └── ToastContainer.tsx   # Floating feedback toasts
-│   │   ├── pricing/
-│   │   │   ├── RecommendationCard.tsx # Hero pricing card with Approve/Keep buttons
-│   │   │   ├── DemandPredictionChart.tsx # Recharts hourly demand curve
-│   │   │   ├── FactorBreakdown.tsx  # Dynamic weighting progress bars
-│   │   │   ├── StockAlertBadge.tsx  # Inventory longevity warning gauge
-│   │   │   └── CompetitorMiniCards.tsx # Competitor quick comparison cards
-│   └── pages/
-│       ├── LandingPage.tsx          # Public landing page with live interactive demo widget
-│       ├── AuthPage.tsx             # Auth with 1-click Demo Merchant access
-│       ├── DashboardPage.tsx        # High-level store overview and trends
-│       ├── SmartPricingPage.tsx     # Full detection workflow & AI recommendation
-│       ├── CompetitorsPage.tsx      # Competitor price corridor and comparison charts
-│       ├── SpecialOffersPage.tsx    # Demand-driven promotional discount generator
-│       ├── ProfitLossPage.tsx       # Financial metrics & baseline vs AI profit comparisons
-│       ├── ProductsPage.tsx         # Catalog management (Add/Edit/Delete/Filter)
-│       └── PriceHistoryPage.tsx     # Historical audit log of approved pricing changes
-└── README.md
+│   │   └── AppContext.tsx             # Application state management
+│   ├── data/
+│   │   └── sampleData.ts              # Sample application data
+│   ├── pages/
+│   │   ├── LandingPage.tsx            # Public landing page
+│   │   ├── AuthPage.tsx               # Authentication interface
+│   │   ├── DashboardPage.tsx          # Main dashboard
+│   │   ├── SmartPricingPage.tsx       # Smart price detection
+│   │   ├── CompetitorsPage.tsx        # Competitor analysis
+│   │   ├── ProductsPage.tsx           # Product catalog management
+│   │   ├── SpecialOffersPage.tsx      # Special offers management
+│   │   ├── PriceHistoryPage.tsx       # Price history
+│   │   └── ProfitLossPage.tsx         # Profit and loss analysis
+│   ├── services/
+│   │   ├── api.ts                     # Backend API communication
+│   │   ├── mlService.ts               # ML service integration
+│   │   ├── pricingEngine.ts           # Pricing recommendation logic
+│   │   └── storageService.ts          # Application storage utilities
+│   ├── types/                         # TypeScript type definitions
+│   ├── App.tsx                        # Main React application
+│   ├── main.tsx                       # Frontend entry point
+│   └── index.css                      # Global styles
+│
+├── .gitignore                         # Excluded files and secrets
+├── index.html                         # HTML entry point
+├── package.json                       # Frontend dependencies and scripts
+├── package-lock.json                  # Locked npm dependency versions
+├── postcss.config.js                  # PostCSS configuration
+├── tailwind.config.js                 # Tailwind CSS configuration
+├── tsconfig.json                      # TypeScript configuration
+├── vite.config.ts                     # Vite development configuration
+└── README.md                          # Project documentation
+```
+
+> **Note:** `.venv/`, `node_modules/`, and `.env` are local development files and should not be committed to GitHub. The structure above documents their local locations where relevant, but they should be excluded from the repository.
+
 ```
 
 ---
